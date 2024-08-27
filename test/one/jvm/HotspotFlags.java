@@ -27,7 +27,7 @@ public class HotspotFlags {
 
         if (osType.equals("win")) {
             String jvmLibrary = "C:\\Users\\kulis\\.jdks\\temurin-11.0.22\\bin\\server\\jvm.dll";
-            System.out.println("Using JVM DLL: " + jvmLibrary);
+            System.out.println("using JVM DLL: " + jvmLibrary);
 
         } else if (osType.equals("unix")) {
             String maps = findJvmMaps();
