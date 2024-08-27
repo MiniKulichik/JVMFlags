@@ -102,6 +102,7 @@ public class HotspotFlags {
 
     }
 
+
     public static Unsafe getUnsafe() {
         try {
             Field field = Unsafe.class.getDeclaredField("theUnsafe");
@@ -111,6 +112,7 @@ public class HotspotFlags {
             throw new RuntimeException("unable to access Unsafe", e);
         }
     }
+
 
     public static String checkEnvironment() {
         String osName = System.getProperty("os.name").toLowerCase();
@@ -140,6 +142,7 @@ public class HotspotFlags {
         }
     }
 
+
     private static long testHashCode(Object obj) {
         long startTime = System.nanoTime();
         int hashCode = obj.hashCode();
@@ -147,6 +150,7 @@ public class HotspotFlags {
         System.out.println("HashCode: " + hashCode);
         return endTime - startTime;
     }
+
 
     public String findSymbol(String symbolName) {
         if (symtab == null) {
@@ -161,19 +165,24 @@ public class HotspotFlags {
         }
     }
 
+
     public int getIntFlag(String flagName) {
         return intFlag.getOrDefault(flagName, 0);
     }
+
 
     public void setIntFlag(String flagName, int value) {
         intFlag.put(flagName, value);
     }
 
+
     public void setBooleanFlag(String flagName, boolean value) {
         booleanFlag.put(flagName, value);
     }
 
+
     public boolean getBooleanFlag(String flagName) {
         return booleanFlag.getOrDefault(flagName, false);
     }
+
 }
